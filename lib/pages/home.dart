@@ -1,16 +1,12 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:psiphon/vpn_psiphon.dart';
 import 'package:soscuba/pages/mensajes.dart';
 import 'package:soscuba/pages/notifications.dart';
 import 'package:soscuba/pages/search.dart';
 import 'package:soscuba/pages/tendences.dart';
-import 'package:soscuba/pages/widgets/account.dart';
-import 'package:soscuba/pages/widgets/new_post.dart';
 
 class Home extends StatefulWidget {
-  Home({Key key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -49,7 +45,7 @@ class _HomeState extends State<Home> {
               size: 24,
             ),
             // ignore: deprecated_member_use
-            title: Text("Inicio", style: TextStyle(fontSize: 12)),
+            label: 'Inicio',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -57,7 +53,7 @@ class _HomeState extends State<Home> {
               size: 24,
             ),
             // ignore: deprecated_member_use
-            title: Text("Buscar", style: TextStyle(fontSize: 12)),
+            label: 'Buscar',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -65,7 +61,7 @@ class _HomeState extends State<Home> {
               size: 24,
             ),
             // ignore: deprecated_member_use
-            title: Text("Notificaciones", style: TextStyle(fontSize: 12)),
+            label: 'Notificaciones',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -73,7 +69,7 @@ class _HomeState extends State<Home> {
               size: 24,
             ),
             // ignore: deprecated_member_use
-            title: Text("Mensajes", style: TextStyle(fontSize: 12)),
+            label: 'Mensajes',
           ),
         ],
         onTap: (index) {

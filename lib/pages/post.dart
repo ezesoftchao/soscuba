@@ -1,47 +1,46 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:psiphon/vpn_psiphon.dart';
 import 'package:soscuba/utils/enc.dart';
 
 class PostPage extends StatefulWidget {
-  String id;
-  String author;
-  String author_img;
-  String date;
-  String text;
-  String img;
-  String type;
-  String verified;
-  String likes;
-  String comments;
-  String shares;
-  String platform;
-  PostPage(
-      {Key key,
-      @required this.author,
-      @required this.author_img,
-      @required this.date,
-      @required this.text,
-      @required this.img,
-      @required this.type,
-      @required this.verified,
-      @required this.likes,
-      @required this.comments,
-      @required this.shares,
-      @required this.platform})
-      : super(key: key);
+  final String id;
+  final String author;
+  final String authorImg;
+  final String date;
+  final String text;
+  final String img;
+  final String type;
+  final String verified;
+  final String likes;
+  final String comments;
+  final String shares;
+  final String platform;
+  PostPage({
+    Key? key,
+    required this.author,
+    required this.authorImg,
+    required this.date,
+    required this.text,
+    required this.img,
+    required this.type,
+    required this.verified,
+    required this.likes,
+    required this.comments,
+    required this.shares,
+    required this.platform,
+    required this.id,
+  }) : super(key: key);
 
   @override
   _PostPageState createState() => _PostPageState();
 }
 
 class _PostPageState extends State<PostPage> {
-  Uint8List bytes;
-  String platform;
+  Uint8List? bytes;
+  String? platform;
 
   getdata(String id) {}
 
@@ -107,7 +106,7 @@ class _PostPageState extends State<PostPage> {
                       child: Image(
                           width: 50,
                           height: 50,
-                          image: NetworkImage(decryp(widget.author_img)))),
+                          image: NetworkImage(decryp(widget.authorImg)))),
                   SizedBox(width: 10),
                   Text(
                     decryp(
@@ -134,8 +133,14 @@ class _PostPageState extends State<PostPage> {
                     borderRadius: BorderRadius.circular(22)),
                 height: 300,
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image(fit: BoxFit.cover, image: MemoryImage(bytes))),
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image(
+                    fit: BoxFit.cover,
+                    image: MemoryImage(
+                      bytes!,
+                    ),
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -145,7 +150,7 @@ class _PostPageState extends State<PostPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    widget.date + ' - ' + '#SOSCuba para ' + platform,
+                    widget.date + ' - ' + '#SOSCuba para ' + platform!,
                     style: TextStyle(
                         color: Colors.grey, fontWeight: FontWeight.w600),
                   ),

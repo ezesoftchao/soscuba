@@ -3,42 +3,42 @@ import 'package:soscuba/utils/enc.dart';
 
 class GetPosts {
   final dynamic response;
-  GetPosts(this.response);
+  GetPosts({required this.response});
 
-  Map<String, dynamic> data;
+  Map<String, dynamic>? data;
 
-  List<dynamic> id = List();
-  List<dynamic> author = List();
-  List<dynamic> author_img = List();
-  List<dynamic> date = List();
-  List<dynamic> text = List();
-  List<dynamic> img = List();
-  List<dynamic> type = List();
-  List<dynamic> verified = List();
-  List<dynamic> likes = List();
-  List<dynamic> comments = List();
-  List<dynamic> shares = List();
-  List<dynamic> platform = List();
+  List<dynamic> id = [];
+  List<dynamic> author = [];
+  List<dynamic> authorImg = [];
+  List<dynamic> date = [];
+  List<dynamic> text = [];
+  List<dynamic> img = [];
+  List<dynamic> type = [];
+  List<dynamic> verified = [];
+  List<dynamic> likes = [];
+  List<dynamic> comments = [];
+  List<dynamic> shares = [];
+  List<dynamic> platform = [];
 
   Future<List<Post>> execute() async {
     data = this.response;
-    final id = List();
-    final author = List();
-    final author_img = List();
-    final date = List();
-    final text = List();
-    final img = List();
-    final type = List();
-    final verified = List();
-    final likes = List();
-    final comments = List();
-    final shares = List();
-    final platform = List();
+    final id = [];
+    final author = [];
+    final authorImg = [];
+    final date = [];
+    final text = [];
+    final img = [];
+    final type = [];
+    final verified = [];
+    final likes = [];
+    final comments = [];
+    final shares = [];
+    final platform = [];
 
-    for (var word in data['posts']) {
+    for (var word in data!['posts']) {
       id.add(word['id']);
       author.add(word['author']);
-      author_img.add(word['author_img']);
+      authorImg.add(word['author_img']);
       date.add(word['date']);
       text.add(word['text']);
       img.add(word['img']);
@@ -53,7 +53,7 @@ class GetPosts {
     final List<Post> listPost = this._parseProduct(
       id,
       author,
-      author_img,
+      authorImg,
       date,
       text,
       img,

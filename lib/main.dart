@@ -73,7 +73,7 @@ class MyProxyHttpOverride extends HttpOverrides {
   MyProxyHttpOverride(this.PROXY);
 
   @override
-  HttpClient createHttpClient(SecurityContext context) {
+  HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
       ..findProxy = (uri) {
         return PROXY;
